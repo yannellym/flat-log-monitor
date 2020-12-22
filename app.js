@@ -17,7 +17,7 @@ function postLogMessage(message){
 
 function monitorFlatLog(){
    console.log('Monitor Flat Log ......');
-   checkFlatLog();
+   // checkFlatLog();
    setInterval(()=> {
       checkFlatLog();
    },60000);
