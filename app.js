@@ -20,7 +20,7 @@ function monitorFlatLog(){
    // checkFlatLog();
    setInterval(()=> {
       checkFlatLog();
-   },60000);
+   },3600000);
    
 }
 
