@@ -37,4 +37,5 @@ function checkFlatLog(){
 }
 
 //postLogMessage("Test Message");
+checkFlatLog();
 monitorFlatLog();
