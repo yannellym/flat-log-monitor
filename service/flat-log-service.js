@@ -1,16 +1,17 @@
 const connection = require('../connection/conection');
 
 const serviceDef = {
-  getLastFlatLogEntry
+  getFlatLogEntry
 }
 
-function getLastFlatLogEntry(){
+function getFlatLogEntry(summaryTable,delayGracePeriod){
+  const sql = `select date_updated as last_update, table_name , IF(TIMESTAMPDIFF(MINUTE,date_updated,NOW()) > ${delayGracePeriod},1,0) AS 'sync_delayed',TIMESTAMPDIFF(MINUTE,date_updated,NOW()) as duration_since_last_sync from etl.flat_log where table_name like '%${summaryTable}%'  order by date_created desc limit 1;`;
+  return runSql(sql)
+}
 
+function runSql(sql){
   return new Promise((resolve, reject) => {
-
-  console.log('getLastFlatLogEntry called ...');
-  const sql = `select date_updated as last_update, table_name ,TIMESTAMPDIFF(MINUTE,date_updated,NOW()) as duration_since_last_sync from etl.flat_log where table_name like '%flat_hiv_summary%' order by date_created desc limit 1;`;
-  console.log("sql", sql);
+  console.log('sql ...', sql);
   connection
     .getConnectionPool()
     .then((pool) => {
