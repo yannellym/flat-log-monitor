@@ -77,14 +77,36 @@ function postSingleDelayMessage(result){
 }
 
 async function flatLogMassCheck(){
-   const hivSummaryCheck = await checkFlatLog('flat_hiv_summary',DAYDELAYINNMIN);
+   await checkFlatLog('flat_obs',DAYDELAYINNMIN);
+   console.log('flatObsCheck .... Done');
+   await checkFlatLog('flat_lab_obs',DAYDELAYINNMIN);
+   console.log('flatLabObsCheck .... Done');
+   await checkFlatLog('flat_orders',DAYDELAYINNMIN);
+   console.log('flaOrdersCheck .... Done');
+   await checkFlatLog('flat_labs_and_imaging',DAYDELAYINNMIN);
+   console.log('flatLabsImagingCheck .... Done');
+   await checkFlatLog('flat_hiv_summary',DAYDELAYINNMIN);
    console.log('hivSummaryCheck .... Done');
-   const surgeSummaryCheck = await checkFlatLog('surge_weekly_report_dataset',NIGHTDELAYINMIN);
+   await checkFlatLog('flat_appointment',DAYDELAYINNMIN);
+   console.log('flatAppointmentCheck .... Done');
+   await checkFlatLog('flat_vitals',NIGHTDELAYINMIN);
+   console.log('flatVitalsCheck .... Done');
+   await checkFlatLog('flat_defaulters',NIGHTDELAYINMIN);
+   console.log('flatDefaultersCheck .... Done');
+   await checkFlatLog('flat_case_manager',NIGHTDELAYINMIN);
+   console.log('flatCaseManagerCheck .... Done');
+   await checkFlatLog('flat_family_testing',NIGHTDELAYINMIN);
+   console.log('flatFamilyTestingCheck  .... Done');
+   await checkFlatLog('surge_weekly_report_dataset',NIGHTDELAYINMIN);
    console.log('surgeSummaryCheck .... Done');
-   const pepSummaryCheck = await checkFlatLog('flat_pep_summary',NIGHTDELAYINMIN);
+   await checkFlatLog('flat_pep_summary',NIGHTDELAYINMIN);
    console.log('pepSummaryCheck .... Done');
-   const hivMonthlySummary = await checkFlatLog('hiv_monthly_report_dataset',NIGHTDELAYINMIN);
+   await checkFlatLog('hiv_monthly_report_dataset',NIGHTDELAYINMIN);
    console.log('hivMonthlySummary .... Done');
+   await checkFlatLog('flat_prep_summary',NIGHTDELAYINMIN);
+   console.log('prepSummaryCheck .... Done');
+   await checkFlatLog('flat_covid_screening',NIGHTDELAYINMIN);
+   console.log('covidScreeningCheck .... Done');
    console.log('All checks done .... Done');
 
 }
