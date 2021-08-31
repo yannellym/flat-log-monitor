@@ -81,7 +81,7 @@ async function flatLogMassCheck(){
    console.log('flatObsCheck .... Done');
    await checkFlatLog('flat_lab_obs',DAYDELAYINNMIN);
    console.log('flatLabObsCheck .... Done');
-   await checkFlatLog('flat_orders',DAYDELAYINNMIN);
+   await checkFlatLog('flat_orders',NIGHTDELAYINMIN);
    console.log('flaOrdersCheck .... Done');
    await checkFlatLog('flat_labs_and_imaging',DAYDELAYINNMIN);
    console.log('flatLabsImagingCheck .... Done');
@@ -107,6 +107,8 @@ async function flatLogMassCheck(){
    console.log('prepSummaryCheck .... Done');
    await checkFlatLog('flat_covid_screening',NIGHTDELAYINMIN);
    console.log('covidScreeningCheck .... Done');
+   await checkFlatLog('flat_cdm',NIGHTDELAYINMIN);
+   console.log('covidFlatCdm .... Done');
    console.log('All checks done .... Done');
 
 }
