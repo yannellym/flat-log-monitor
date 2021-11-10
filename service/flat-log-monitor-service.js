@@ -1,7 +1,12 @@
 const flatLogService = require('../service/flat-log-service');
 const messageService = require('../service/message-service');
+const eidLogService = require('../service/eid-log-service');
 const NIGHTDELAYINMIN = 1440;
 const DAYDELAYINNMIN = 30;
+const VL_CONCEPT = 856;
+const DNA_PCR_CONCEPT = 1030;
+const CD4_CONCEPT = 5497;
+const CD4_PERCENT_CONCEPT = 730;
 
 const serviceDef = {
   flatLogMassCheck
@@ -22,6 +27,23 @@ return new Promise((resolve,reject)=> {
 });
    
   
+}
+
+function checkEidLResultLog(resultConcept,delayGracePeriod){
+
+   return new Promise((resolve,reject)=> {
+
+      eidLogService.checkLastResultEntry(resultConcept,delayGracePeriod)
+      .then((result)=> {
+         postSingleDelayMessage(result).then((result) => {
+            resolve(result);
+         });
+      }).catch((error) => {
+          reject(error);
+      });
+
+});
+
 }
 
 
@@ -77,6 +99,7 @@ function postSingleDelayMessage(result){
 }
 
 async function flatLogMassCheck(){
+   try{
    await checkFlatLog('flat_obs',DAYDELAYINNMIN);
    console.log('flatObsCheck .... Done');
    await checkFlatLog('flat_lab_obs',DAYDELAYINNMIN);
@@ -109,7 +132,23 @@ async function flatLogMassCheck(){
    console.log('covidScreeningCheck .... Done');
    await checkFlatLog('flat_cdm',NIGHTDELAYINMIN);
    console.log('covidFlatCdm .... Done');
+   await checkEidLResultLog(VL_CONCEPT,NIGHTDELAYINMIN);
+   console.log('checkVL .... Done');
+   await checkEidLResultLog(DNA_PCR_CONCEPT,NIGHTDELAYINMIN);
+   console.log('DNA_PCR .... Done');
+   await checkEidLResultLog(CD4_PERCENT_CONCEPT,NIGHTDELAYINMIN);
+   console.log('CD4_PERCENT_CONCEPT .... Done');
+   await checkEidLResultLog(CD4_CONCEPT,NIGHTDELAYINMIN);
+   console.log('CD4_CONCEPT .... Done');
    console.log('All checks done .... Done');
+   }catch(e){
+
+      const errorPayload = {
+         message: `ERROR: Error encountered generating payload. ${e}`
+       };
+      return postLogDelayMessage(errorPayload)
+       
+   }
 
 }
 
