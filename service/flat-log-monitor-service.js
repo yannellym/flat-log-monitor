@@ -126,6 +126,8 @@ async function flatLogMassCheck(){
    console.log('pepSummaryCheck .... Done');
    await checkFlatLog('hiv_monthly_report_dataset',NIGHTDELAYINMIN);
    console.log('hivMonthlySummary .... Done');
+   await checkFlatLog('flat_breast_cancer_screening',NIGHTDELAYINMIN);
+   console.log('Flat Breast Cancer .... Done');
    await checkFlatLog('flat_prep_summary',NIGHTDELAYINMIN);
    console.log('prepSummaryCheck .... Done');
    await checkFlatLog('flat_covid_screening',NIGHTDELAYINMIN);
