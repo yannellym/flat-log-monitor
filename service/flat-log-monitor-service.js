@@ -110,6 +110,10 @@ async function flatLogMassCheck(){
    console.log('flatLabsImagingCheck .... Done');
    await checkFlatLog('flat_hiv_summary',DAYDELAYINNMIN);
    console.log('hivSummaryCheck .... Done');
+   await checkFlatLog('flat_covid_extract',DAYDELAYINNMIN);
+   console.log('flatCovidExtractCheck .... Done');
+   await checkFlatLog('surge_daily_report_dataset',DAYDELAYINNMIN);
+   console.log('surgeDaileReport .... Done');
    await checkFlatLog('flat_appointment',DAYDELAYINNMIN);
    console.log('flatAppointmentCheck .... Done');
    await checkFlatLog('flat_vitals',NIGHTDELAYINMIN);
