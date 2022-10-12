@@ -1,0 +1,20 @@
+{
+    "slackApi": {
+      "webhook": {
+         "url": ""
+      }
+    },
+    "mysql": {
+      "connectionLimit": 5,
+      "host": "",
+      "port": "",
+      "user": "",
+      "password": "",
+      "database": "",
+      "multipleStatements": true
+    },
+    "queueTables": {
+      "ampath": "eid_sync_queue",
+      "alupe": "eid_sync_queue_alupe"
+    }
+  }

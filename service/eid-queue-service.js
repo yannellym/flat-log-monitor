@@ -2,15 +2,15 @@
 const connection = require('../connection/conection');
 const messageService = require('../service/message-service');
 const momemt = require('moment');
+const queueTables = require('../config.json');
+
 
 function getAlupeEidQueueCount(){
-  const queueTable = 'eid_sync_queue_alupe';
-   return processEidQueueCount(queueTable);
+   return processEidQueueCount(queueTables.alupe);
 }
 
 function getAmpathEidQueueCount(){
-  const queueTable = 'eid_sync_queue';
-   return processEidQueueCount(queueTable);
+   return processEidQueueCount(queueTables.ampath);
 }
 
 async function processEidQueueCount(table){
