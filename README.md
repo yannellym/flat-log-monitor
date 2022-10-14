@@ -17,7 +17,6 @@ the channel webhook which you will set in the config.json file
 3. Create a config folder in the root directory with config.json file with the following configuration
 
 ```json
-
 {
   "slackApi": {
     "webhook": {
@@ -38,7 +37,6 @@ the channel webhook which you will set in the config.json file
     "alupe": "eid_sync_queue_alupe"
   }
 }
-
 ```
 
 ## Requirements
