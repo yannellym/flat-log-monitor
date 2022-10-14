@@ -33,8 +33,8 @@ the channel webhook which you will set in the config.json file
     "multipleStatements": true
   },
   "queueTables": {
-    "ampath": "eid_sync_queue",
-    "alupe": "eid_sync_queue_alupe"
+    "ampath": "",
+    "alupe": ""
   }
 }
 ```
