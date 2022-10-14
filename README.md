@@ -21,7 +21,7 @@ the channel webhook which you will set in the config.json file
 {
   "slackApi": {
     "webhook": {
-       "url": ""
+      "url": ""
     }
   },
   "mysql": {
@@ -32,6 +32,10 @@ the channel webhook which you will set in the config.json file
     "password": "",
     "database": "",
     "multipleStatements": true
+  },
+  "queueTables": {
+    "ampath": "eid_sync_queue",
+    "alupe": "eid_sync_queue_alupe"
   }
 }
 
