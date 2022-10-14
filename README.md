@@ -17,11 +17,10 @@ the channel webhook which you will set in the config.json file
 3. Create a config folder in the root directory with config.json file with the following configuration
 
 ```json
-
 {
   "slackApi": {
     "webhook": {
-       "url": ""
+      "url": ""
     }
   },
   "mysql": {
@@ -32,9 +31,12 @@ the channel webhook which you will set in the config.json file
     "password": "",
     "database": "",
     "multipleStatements": true
+  },
+  "queueTables": {
+    "ampath": "",
+    "alupe": ""
   }
 }
-
 ```
 
 ## Requirements
